@@ -425,7 +425,7 @@ struct SettingsView: View {
             }
 
             if isInUS {
-                Section(header: Text("Own a part of SimpleX Chat").foregroundColor(theme.colors.secondary)) {
+                Section(header: Text("About Mithril").foregroundColor(theme.colors.secondary)) {
                     NavigationLink {
                         GetStakeView(fromSettings: true, showFirstImage: true)
                             .navigationBarTitle("", displayMode: .inline)
@@ -480,7 +480,7 @@ struct SettingsView: View {
                         .modifier(ThemedBackground())
                         .frame(maxHeight: .infinity, alignment: .top)
                 } label: {
-                    settingsRow("info", color: theme.colors.secondary) { Text("About SimpleX Chat") }
+                    settingsRow("info", color: theme.colors.secondary) { Text("About Mithril") }
                 }
             }
 

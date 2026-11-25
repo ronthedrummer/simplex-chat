@@ -1,5 +1,5 @@
 <resources>
-  <string name="app_name">SimpleX</string>
+  <string name="app_name">Mithril</string>
 
   <string name="thousand_abbreviation">k</string>
 
@@ -286,7 +286,7 @@
   <string name="xiaomi_ignore_battery_optimization"><![CDATA[<b>Xiaomi devices</b>: please enable Autostart in the system settings for notifications to work.]]></string>
 
   <!-- SimpleX Chat foreground Service -->
-  <string name="simplex_service_notification_title">SimpleX Chat service</string>
+  <string name="simplex_service_notification_title">Mithril service</string>
   <string name="simplex_service_notification_text">Receiving messages…</string>
   <string name="call_service_notification_audio_call">Audio call</string>
   <string name="call_service_notification_video_call">Video call</string>
@@ -294,8 +294,8 @@
   <string name="hide_notification">Hide</string>
 
   <!-- Notification channels -->
-  <string name="ntf_channel_messages">SimpleX Chat messages</string>
-  <string name="ntf_channel_calls">SimpleX Chat calls</string>
+  <string name="ntf_channel_messages">Mithril messages</string>
+  <string name="ntf_channel_calls">Mithril calls</string>
 
   <!-- Notifications -->
   <string name="settings_notifications_mode_title">Notification service</string>
@@ -833,15 +833,15 @@
   <string name="gallery_video_button">Video</string>
 
   <!-- help - ChatHelpView.kt -->
-  <string name="thank_you_for_installing_simplex">Thank you for installing SimpleX Chat!</string>
-  <string name="you_can_connect_to_simplex_chat_founder"><![CDATA[You can <font color="#0088ff">connect to SimpleX Chat developers to ask any questions and to receive updates</font>.]]></string>
+  <string name="thank_you_for_installing_simplex">Thank you for installing Mithril!</string>
+  <string name="you_can_connect_to_simplex_chat_founder"><![CDATA[Questions? Contact Oak Digital support.]]></string>
   <string name="to_start_a_new_chat_help_header">To start a new chat</string>
   <string name="chat_help_tap_button">Tap button</string>
   <string name="above_then_preposition_continuation">above, then:</string>
   <string name="add_contact_button_to_create_link_or_connect_via_link"><![CDATA[<b>Add contact</b>: to create a new invitation link, or connect via a link you received.]]></string>
   <string name="create_group_button_to_create_new_group"><![CDATA[<b>Create group</b>: to create a new group.]]></string>
   <string name="to_connect_via_link_title">To connect via link</string>
-  <string name="if_you_received_simplex_invitation_link_you_can_open_in_browser">If you received SimpleX Chat invitation link, you can open it in your browser:</string>
+  <string name="if_you_received_simplex_invitation_link_you_can_open_in_browser">If you received a Mithril invitation link, you can open it in your browser:</string>
   <string name="desktop_scan_QR_code_from_app_via_scan_QR_code"><![CDATA[💻 desktop: scan displayed QR code from the app, via <b>Scan QR code</b>.]]></string>
   <string name="mobile_tap_open_in_mobile_app_then_tap_connect_in_app"><![CDATA[📱 mobile: tap <b>Open in mobile app</b>, then tap <b>Connect</b> in the app.]]></string>
 
@@ -1032,7 +1032,7 @@
   <string name="your_chat_profiles">Your chat profiles</string>
   <string name="create_chat_profile">Create chat profile</string>
   <string name="database_passphrase_and_export">Database passphrase &amp; export</string>
-  <string name="about_simplex_chat">About SimpleX Chat</string>
+  <string name="about_simplex_chat">About Mithril</string>
   <string name="how_to_use_simplex_chat">How to use it</string>
   <string name="markdown_help">Markdown help</string>
   <string name="markdown_in_messages">Markdown in messages</string>
@@ -1063,13 +1063,13 @@
   <string name="smp_save_servers_question">Save servers?</string>
   <string name="media_and_file_servers">Media &amp; file servers</string>
   <string name="subscription_percentage">Show percentage</string>
-  <string name="install_simplex_chat_for_terminal">Install SimpleX Chat for terminal</string>
+  <string name="install_simplex_chat_for_terminal">Install Mithril for terminal</string>
   <string name="reset_all_hints">Reset all hints</string>
   <string name="star_on_github">Star on GitHub</string>
   <string name="contribute">Contribute</string>
   <string name="rate_the_app">Rate the app</string>
-  <string name="use_simplex_chat_servers__question">Use SimpleX Chat servers?</string>
-  <string name="using_simplex_chat_servers">Using SimpleX Chat servers.</string>
+  <string name="use_simplex_chat_servers__question">Use Mithril (Oak Digital) servers?</string>
+  <string name="using_simplex_chat_servers">Using Mithril servers (chat.oakendigital.com).</string>
   <string name="how_to">How to</string>
   <string name="how_to_use_your_servers">How to use your servers</string>
   <string name="saved_ICE_servers_will_be_removed">Saved WebRTC ICE servers will be removed.</string>
@@ -1209,8 +1209,8 @@
   <string name="save_auto_accept_settings">Save SimpleX address settings</string>
   <string name="delete_address">Delete address</string>
   <string name="invite_friends">Invite friends</string>
-  <string name="email_invite_subject">Let\'s talk in SimpleX Chat</string>
-  <string name="email_invite_body">Hi!\nConnect to me via SimpleX Chat: %s</string>
+  <string name="email_invite_subject">Let\'s talk in Mithril</string>
+  <string name="email_invite_body">Hi!\nConnect to me via Mithril: %s</string>
   <string name="for_social_media">For social media</string>
   <string name="or_to_share_privately">Or to share privately</string>
   <string name="simplex_address_or_1_time_link">SimpleX address or 1-time link?</string>
@@ -1278,7 +1278,7 @@
   <string name="create_address_button">Create</string>
   <string name="invalid_name">Invalid name!</string>
   <string name="correct_name_to">Correct name to %s?</string>
-  <string name="about_simplex">About SimpleX</string>
+  <string name="about_simplex">About Mithril</string>
 
   <!-- markdown demo - MarkdownHelpView.kt -->
   <string name="how_to_use_markdown">How to use markdown</string>
@@ -1382,10 +1382,10 @@
   <string name="onboarding_conditions_accept">Accept</string>
   <string name="onboarding_choose_server_operators">Server operators</string>
   <string name="onboarding_network_operators">Network operators</string>
-  <string name="onboarding_network_operators_simplex_flux_agreement">SimpleX Chat and Flux made an agreement to include Flux-operated servers into the app.</string>
+  <string name="onboarding_network_operators_simplex_flux_agreement">Mithril uses Oak Digital servers exclusively (chat.oakendigital.com).</string>
   <string name="onboarding_network_operators_app_will_use_different_operators">The app protects your privacy by using different operators in each conversation.</string>
   <string name="onboarding_network_operators_cant_see_who_talks_to_whom">When more than one operator is enabled, none of them has metadata to learn who communicates with whom.</string>
-  <string name="onboarding_network_operators_app_will_use_for_routing">For example, if your contact receives messages via a SimpleX Chat server, your app will deliver them via a Flux server.</string>
+  <string name="onboarding_network_operators_app_will_use_for_routing">Messages and files are delivered via Oak Digital at chat.oakendigital.com.</string>
   <string name="onboarding_network_about_operators">About operators</string>
   <string name="how_it_helps_privacy">How it helps privacy</string>
   <string name="onboarding_network_operators_configure_via_settings">You can configure servers via settings.</string>
@@ -1431,7 +1431,7 @@
   <string name="relay_server_if_necessary">Relay server is only used if necessary. Another party can observe your IP address.</string>
 
   <!-- Call Lock Screen -->
-  <string name="open_simplex_chat_to_accept_call">Open SimpleX Chat to accept call</string>
+  <string name="open_simplex_chat_to_accept_call">Open Mithril to accept call</string>
   <string name="allow_accepting_calls_from_lock_screen">Enable calls from lock screen via Settings.</string>
   <string name="open_verb">Open</string>
   <string name="open_external_link_title">Open external link?</string>
@@ -1569,7 +1569,7 @@
   <string name="settings_section_title_settings">Settings</string>
   <string name="settings_section_title_chat_database">Chat database</string>
   <string name="settings_section_title_help">Help</string>
-  <string name="settings_section_title_support">Support SimpleX Chat</string>
+  <string name="settings_section_title_support">Support</string>
   <string name="settings_section_title_app">App</string>
   <string name="settings_section_title_device">Device</string>
   <string name="settings_section_title_chats">Chats</string>
@@ -2516,7 +2516,7 @@
   <string name="whats_new_read_more">Read more</string>
   <string name="whats_new_learn_more">Learn more.</string>
   <string name="v4_2_security_assessment">Security assessment</string>
-  <string name="v4_2_security_assessment_desc">SimpleX Chat security was audited by Trail of Bits.</string>
+  <string name="v4_2_security_assessment_desc">Based on SimpleX Chat protocol; upstream security was audited by Trail of Bits.</string>
   <string name="v4_2_group_links">Group links</string>
   <string name="v4_2_group_links_desc">Admins can create the links to join groups.</string>
   <string name="v4_2_auto_accept_contact_requests">Auto-accept contact requests</string>
@@ -2719,9 +2719,9 @@
   <string name="v7_0_invest_descr" translatable="false">Crowdfunding on Wefunder.</string>
   <string name="v7_0_crowdfunding" translatable="false">Crowdfunding on Wefunder</string>
   <string name="v7_0_invest_learn_more" translatable="false">Learn more on Wefunder</string>
-  <string name="invest_banner_title" translatable="false">Invest in SimpleX Chat!</string>
+  <string name="invest_banner_title" translatable="false">Mithril</string>
   <string name="invest_banner_subtitle" translatable="false">Crowdfunding on Wefunder</string>
-  <string name="invest_settings_title" translatable="false">Own a part of SimpleX Chat</string>
+  <string name="invest_settings_title" translatable="false">About Mithril</string>
   <string name="v7_0_simplex_names">SimpleX public names (BETA)</string>
   <string name="v7_0_simplex_names_descr">Public names for your channel or business.</string>
   <string name="v7_0_channels">Better channels 📢</string>
@@ -3176,9 +3176,9 @@
   <string name="tray_tooltip_unread">SimpleX — %d unread</string>
   <string name="appearance_minimize_to_tray">Close to tray</string>
   <string name="appearance_minimize_to_tray_desc">Runs in background to receive messages</string>
-  <string name="badge_supports_simplex">%s supports SimpleX Chat.</string>
-  <string name="badge_supported_simplex">%1$s supported SimpleX Chat. The badge expired on %2$s.</string>
-  <string name="badge_invested">%s invested in SimpleX Chat crowdfunding.</string>
+  <string name="badge_supports_simplex">%s supports Mithril.</string>
+  <string name="badge_supported_simplex">%1$s supported Mithril. The badge expired on %2$s.</string>
+  <string name="badge_invested">%s invested in Mithril.</string>
   <string name="badge_unverified_title">Unverified badge</string>
   <string name="badge_unverified_desc">This badge could not be verified and may not be genuine.</string>
   <string name="badge_unknown_key_title">Badge cannot be verified</string>
@@ -3359,7 +3359,7 @@
   <string name="badges_investor_offer_supporter">Invest $100+ and get a free badge.</string>
   <string name="badges_investor_offer_legend">Invest $1000+ and get a free legend badge.</string>
   <string name="badges_investor_offer_learn_more">Learn more on Wefunder</string>
-  <string name="v7_1_invest">Own a part of SimpleX Chat! 🚀</string>
+  <string name="v7_1_invest">Welcome to Mithril</string>
   <string name="v7_1_supporter_badge_title">Supporter badges</string>
   <string name="v7_1_supporter_badge_body">Send larger files\navailable for longer.</string>
   <string name="v7_1_supporter_badge_descr">Larger files available for longer.</string>

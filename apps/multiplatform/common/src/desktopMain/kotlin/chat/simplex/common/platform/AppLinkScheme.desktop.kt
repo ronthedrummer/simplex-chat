@@ -40,7 +40,7 @@ internal const val APPIMAGE_ENTRY_NAME = "chat.simplex.app-links.desktop"
 private const val APPLICATIONS_DIR = "applications"
 // the XDG Base Directory default when XDG_DATA_DIRS is unset
 private const val DEFAULT_XDG_DATA_DIRS = "/usr/local/share:/usr/share"
-private const val APP_DISPLAY_NAME = "SimpleX Chat"
+private const val APP_DISPLAY_NAME = "Mithril"
 private const val XDG_MIME = "xdg-mime"
 // jpackage names the deb's desktop entry <package>-<app>.desktop
 private const val DEB_ENTRY_NAME = "simplex-simplex.desktop"

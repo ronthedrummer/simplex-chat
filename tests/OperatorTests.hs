@@ -15,7 +15,6 @@
 module OperatorTests (operatorTests) where
 
 import Data.Bifunctor (second)
-import qualified Data.List.NonEmpty as L
 import Data.Time.Calendar (fromGregorian)
 import Data.Time.Clock (UTCTime (..), addUTCTime, nominalDay)
 import Simplex.Chat
@@ -24,7 +23,6 @@ import Simplex.Chat.Operators
 import Simplex.Chat.Operators.Presets
 import Simplex.Chat.Protocol (RelayProfile (..), mkRelayProfile)
 import Simplex.Chat.Types
-import Simplex.FileTransfer.Client.Presets (defaultXFTPServers)
 import Simplex.Messaging.Agent.Env.SQLite (ServerCfg (..), ServerRoles (..), allRoles)
 import Simplex.Messaging.Agent.Store.Entity
 import Simplex.Messaging.Encoding.String
@@ -44,7 +42,7 @@ conditionsDeadlineTest = describe "usage conditions deadline" $
     let created = UTCTime (fromGregorian 2026 11 1) 0
         notified = addUTCTime (20 * nominalDay) created
         conditions = UsageConditions {conditionsId = 2, conditionsCommit = usageConditionsCommit, notifiedAt = Just notified, createdAt = created}
-    case usageConditionsAction [operatorSimpleXChat {operatorId = DBEntityId 1}] conditions (addUTCTime nominalDay notified) of
+    case usageConditionsAction [operatorMithril {operatorId = DBEntityId 1}] conditions (addUTCTime nominalDay notified) of
       Just UCAReview {deadline} -> deadline `shouldBe` Just (addUTCTime (31 * nominalDay) notified)
       action -> expectationFailure $ show action
 
@@ -59,8 +57,8 @@ validateServersTest = describe "validate user servers" $ do
     validateUserServers [invalidNoStorage] [] `shouldBe` ([USEStorageMissing aSMP Nothing], [])
   it "should fail with duplicate host" $ do
     validateUserServers [invalidDuplicateSrv] []
-      `shouldBe` ( [ USEDuplicateServer aSMP "smp://0YuTwO05YJWS8rkjn9eLJDjQhFKvIYd8d4xG8X1blIU=@smp8.simplex.im,beccx4yfxxbvyhqypaavemqurytl6hozr47wfc7uuecacjqdvwpw2xid.onion" "smp8.simplex.im",
-                     USEDuplicateServer aSMP "smp://abcd@smp8.simplex.im" "smp8.simplex.im"
+      `shouldBe` ( [ USEDuplicateServer aSMP "smp://hQWvjXQ3QyhCSu5LNyxW7AUiCM4EivfO-xWDt97PJ1U@chat.oakendigital.com" "chat.oakendigital.com",
+                     USEDuplicateServer aSMP "smp://abcd@chat.oakendigital.com" "chat.oakendigital.com"
                    ],
                    []
                  )
@@ -70,7 +68,7 @@ validateServersTest = describe "validate user servers" $ do
     validateUserServers [duplicateChatRelayName] [] `shouldBe` ([], [])
   it "should fail with duplicate chat relay address" $ do
     validateUserServers [invalidDuplicateChatRelayAddress] []
-      `shouldBe` ( [ USEDuplicateChatRelayAddress "SimpleX Chat Relay 2" duplicateAddr,
+      `shouldBe` ( [ USEDuplicateChatRelayAddress "Mithril Relay" duplicateAddr,
                      USEDuplicateChatRelayAddress "chat_relay_4" duplicateAddr
                    ],
                    []
@@ -84,40 +82,36 @@ updatedServersTest = describe "validate user servers" $ do
   it "adding preset operators on first start" $ do
     let ops' :: [(Maybe PresetOperator, Maybe AServerOperator)] =
           updatedServerOperators operators []
-    length ops' `shouldBe` 2
+    length ops' `shouldBe` 1
     all addedPreset ops' `shouldBe` True
     let ops'' :: [(Maybe PresetOperator, Maybe ServerOperator)] =
           saveOps ops' -- mock getUpdateServerOperators
     uss <- groupByOperator' (ops'', [], [], []) -- no stored servers or relays
-    length uss `shouldBe` 3
-    [op1, op2, op3] <- pure $ map updatedUserServers uss
-    [p1, p2] <- pure operators -- presets
+    length uss `shouldBe` 2
+    [op1, op2] <- pure $ map updatedUserServers uss
+    [p1] <- pure operators -- presets
     sameServers p1 op1
     sameRelays p1 op1
-    sameServers p2 op2
-    sameRelays p2 op2
-    null (servers' SPSMP op3) `shouldBe` True
-    null (servers' SPXFTP op3) `shouldBe` True
-    null (chatRelays' op3) `shouldBe` True
+    null (servers' SPSMP op2) `shouldBe` True
+    null (servers' SPXFTP op2) `shouldBe` True
+    null (chatRelays' op2) `shouldBe` True
   it "adding preset operators and assigning servers to operator for existing users" $ do
     let ops' = updatedServerOperators operators []
         ops'' = saveOps ops'
     uss <-
       groupByOperator'
         ( ops'',
-          saveSrvs $ take 3 simplexChatSMPServers <> [newUserServer "smp://abcd@smp.example.im"],
-          saveSrvs $ map (presetServer True) $ L.take 3 defaultXFTPServers,
-          saveRelays $ take 2 simplexChatRelays <> [newChatRelay (mkRelayProfile "custom_relay" Nothing) ["example.im"] customRelayAddr]
+          saveSrvs $ take 1 mithrilSMPServers <> [newUserServer "smp://abcd@smp.example.im"],
+          saveSrvs mithrilXFTPServers,
+          saveRelays [newChatRelay (mkRelayProfile "custom_relay" Nothing) ["example.im"] customRelayAddr]
         )
-    [op1, op2, op3] <- pure $ map updatedUserServers uss
-    [p1, p2] <- pure operators -- presets
+    [op1, op2] <- pure $ map updatedUserServers uss
+    [p1] <- pure operators -- presets
     sameServers p1 op1
     sameRelays p1 op1
-    sameServers p2 op2
-    sameRelays p2 op2
-    map srvHost' (servers' SPSMP op3) `shouldBe` [["smp.example.im"]]
-    null (servers' SPXFTP op3) `shouldBe` True
-    map relayName' (chatRelays' op3) `shouldBe` ["custom_relay"]
+    map srvHost' (servers' SPSMP op2) `shouldBe` [["smp.example.im"]]
+    null (servers' SPXFTP op2) `shouldBe` True
+    map relayName' (chatRelays' op2) `shouldBe` ["custom_relay"]
   where
     addedPreset = \case
       (Just PresetOperator {operator = Just op}, Just (ASO SDBNew op')) -> operatorTag op == operatorTag op'
@@ -195,14 +189,14 @@ perServerRolesTest = describe "per-server roles" $ do
       let (_errs, warns) = validateUserServers [selfHostedUser (ServerRolesOverride Nothing Nothing (Just True))] []
       warns `shouldSatisfy` notElem (USWNoNamesServers Nothing)
   where
-    testOp = operatorSimpleXChat {operatorId = DBEntityId 1}
+    testOp = operatorMithril {operatorId = DBEntityId 1}
     opDomains = operatorDomains [testOp]
     -- host matches no operator domain -> self-hosted
     selfHostedSMP :: ServerRolesOverride -> NewUserServer 'PSMP
     selfHostedSMP r = (newUserServer "smp://abcd@self.example.com" :: NewUserServer 'PSMP) {roles = r}
-    -- host matches operator domain simplex.im
+    -- host matches operator domain oakendigital.com
     opMatchedSMP :: ServerRolesOverride -> NewUserServer 'PSMP
-    opMatchedSMP r = (newUserServer "smp://abcd@smp8.simplex.im" :: NewUserServer 'PSMP) {roles = r}
+    opMatchedSMP r = (newUserServer "smp://abcd@chat.oakendigital.com" :: NewUserServer 'PSMP) {roles = r}
     selfHostedUser :: ServerRolesOverride -> UpdatedUserOperatorServers
     selfHostedUser r =
       UpdatedUserOperatorServers
@@ -223,10 +217,10 @@ deriving instance Eq UserServersWarning
 valid :: UpdatedUserOperatorServers
 valid =
   UpdatedUserOperatorServers
-    { operator = Just operatorSimpleXChat {operatorId = DBEntityId 1},
-      smpServers = map (AUS SDBNew) simplexChatSMPServers,
-      xftpServers = map (AUS SDBNew . presetServer True) $ L.toList defaultXFTPServers,
-      chatRelays = map (AUCR SDBNew) simplexChatRelays
+    { operator = Just operatorMithril {operatorId = DBEntityId 1},
+      smpServers = map (AUS SDBNew) mithrilSMPServers,
+      xftpServers = map (AUS SDBNew) mithrilXFTPServers,
+      chatRelays = map (AUCR SDBNew) testChatRelays
     }
 
 invalidNoServers :: UpdatedUserOperatorServers
@@ -235,25 +229,25 @@ invalidNoServers = (valid :: UpdatedUserOperatorServers) {smpServers = []}
 invalidDisabled :: UpdatedUserOperatorServers
 invalidDisabled =
   (valid :: UpdatedUserOperatorServers)
-    { smpServers = map (AUS SDBNew . (\srv -> (srv :: NewUserServer 'PSMP) {enabled = False})) simplexChatSMPServers
+    { smpServers = map (AUS SDBNew . (\srv -> (srv :: NewUserServer 'PSMP) {enabled = False})) mithrilSMPServers
     }
 
 invalidDisabledOp :: UpdatedUserOperatorServers
 invalidDisabledOp =
   (valid :: UpdatedUserOperatorServers)
-    { operator = Just operatorSimpleXChat {operatorId = DBEntityId 1, enabled = False}
+    { operator = Just operatorMithril {operatorId = DBEntityId 1, enabled = False}
     }
 
 invalidNoStorage :: UpdatedUserOperatorServers
 invalidNoStorage =
   (valid :: UpdatedUserOperatorServers)
-    { operator = Just operatorSimpleXChat {operatorId = DBEntityId 1, smpRoles = allRoles {storage = False}}
+    { operator = Just operatorMithril {operatorId = DBEntityId 1, smpRoles = allRoles {storage = False}}
     }
 
 invalidDuplicateSrv :: UpdatedUserOperatorServers
 invalidDuplicateSrv =
   (valid :: UpdatedUserOperatorServers)
-    { smpServers = map (AUS SDBNew) $ simplexChatSMPServers <> [presetServer True "smp://abcd@smp8.simplex.im"]
+    { smpServers = map (AUS SDBNew) $ mithrilSMPServers <> [presetServer True "smp://abcd@chat.oakendigital.com"]
     }
 
 invalidNoChatRelays :: UpdatedUserOperatorServers
@@ -262,14 +256,19 @@ invalidNoChatRelays = (valid :: UpdatedUserOperatorServers) {chatRelays = []}
 duplicateChatRelayName :: UpdatedUserOperatorServers
 duplicateChatRelayName =
   (valid :: UpdatedUserOperatorServers)
-    { chatRelays = map (AUCR SDBNew) $ simplexChatRelays <> [presetChatRelay True (mkRelayProfile "chat_relay_1" Nothing) ["simplex.im"] (either error id $ strDecode "https://smp444.simplex.im/r#Pz9qz7ZVljMofoRxiDDpL_w2DZSazK8IgafxqnWKv6Y")]
+    { chatRelays = map (AUCR SDBNew) $ testChatRelays <> [presetChatRelay True (mkRelayProfile "chat_relay_1" Nothing) ["oakendigital.com"] (either error id $ strDecode "https://chat.oakendigital.com/r#Pz9qz7ZVljMofoRxiDDpL_w2DZSazK8IgafxqnWKv6Y")]
     }
 
 invalidDuplicateChatRelayAddress :: UpdatedUserOperatorServers
 invalidDuplicateChatRelayAddress =
   (valid :: UpdatedUserOperatorServers)
-    { chatRelays = map (AUCR SDBNew) $ simplexChatRelays <> [presetChatRelay True (mkRelayProfile "chat_relay_4" Nothing) ["simplex.im"] duplicateAddr]
+    { chatRelays = map (AUCR SDBNew) $ testChatRelays <> [presetChatRelay True (mkRelayProfile "chat_relay_4" Nothing) ["oakendigital.com"] duplicateAddr]
     }
 
+testChatRelays :: [NewUserChatRelay]
+testChatRelays =
+  [ presetChatRelay True (mkRelayProfile "Mithril Relay" Nothing) ["oakendigital.com"] duplicateAddr
+  ]
+
 duplicateAddr :: ShortLinkContact
-duplicateAddr = either error id $ strDecode "https://smp6.simplex.im/r#_qlQfogHGDJ8MAF2wKmkglRBM-xHR142gDJstKiGRQQ"
+duplicateAddr = either error id $ strDecode "https://chat.oakendigital.com/r#_qlQfogHGDJ8MAF2wKmkglRBM-xHR142gDJstKiGRQQ"

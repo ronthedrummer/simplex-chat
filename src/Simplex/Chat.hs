@@ -42,7 +42,6 @@ import Simplex.Chat.Store.Profiles
 import Simplex.Chat.Types
 import Simplex.Chat.Types.Shared (GroupMemberRole (..))
 import Simplex.Chat.Util (shuffle)
-import Simplex.FileTransfer.Client.Presets (defaultXFTPServers)
 import Simplex.Messaging.Agent
 import Simplex.Messaging.Agent.Env.SQLite (AgentConfig (..), InitialAgentServers (..), ServerCfg (..), allRoles, createAgentStore, defaultAgentConfig, presetServerCfg)
 import Simplex.Messaging.Agent.RetryInterval (RetryInterval (..))
@@ -54,7 +53,6 @@ import Simplex.Messaging.Agent.Store.Shared (MigrationConfig (..), MigrationConf
 import Simplex.Messaging.Client (defaultNetworkConfig)
 import qualified Simplex.Messaging.Crypto as C
 import Simplex.Messaging.Crypto.Entitlement (entitlementIssuerKeys)
-import Simplex.Messaging.Encoding.String (strDecode)
 import Simplex.Messaging.Protocol (ProtoServerWithAuth (..), ProtocolType (..), SProtocolType (..), SubscriptionMode (..), UserProtocol)
 import qualified Simplex.Messaging.TMap as TM
 import qualified UnliftIO.Exception as E
@@ -71,7 +69,7 @@ defaultChatConfig =
       chatVRange = supportedChatVRange,
       callVRange = supportedCallVRange,
       badgePublicKeys = M.mapKeys fromIntegral entitlementIssuerKeys,
-      badgeServiceAddress = Just $ either error id $ strDecode "https://smp5.simplex.im/a#ooSNWlEZTO2RPE0Ff5ZoybAs5zEhWLMlQrXesnhaZHM",
+      badgeServiceAddress = Nothing, -- public SimpleX badge service disabled in Mithril fork
       badgeCurrentTime = getCurrentTime,
       badgeRetryInterval = RetryInterval {initialInterval = 30_000000, increaseAfter = 0, maxInterval = 3600_000000},
       badgeConsecutiveRetries = 3,
@@ -80,25 +78,17 @@ defaultChatConfig =
       confirmMigrations = MCConsole,
       -- this property should NOT use operator = Nothing
       -- non-operator servers can be passed via options
+      -- Mithril fork: only Oak Digital / chat.oakendigital.com — no public SimpleX or Flux presets
       presetServers =
         PresetServers
           { operators =
               [ PresetOperator
-                  { operator = Just operatorSimpleXChat,
-                    smp = simplexChatSMPServers,
-                    useSMP = 4,
-                    xftp = map (presetServer True) $ L.toList defaultXFTPServers,
-                    useXFTP = 3,
-                    chatRelays = simplexChatRelays,
-                    useChatRelays = 2
-                  },
-                PresetOperator
-                  { operator = Just operatorFlux,
-                    smp = fluxSMPServers,
-                    useSMP = 3,
-                    xftp = fluxXFTPServers,
-                    useXFTP = 3,
-                    chatRelays = [],
+                  { operator = Just operatorMithril,
+                    smp = mithrilSMPServers,
+                    useSMP = 1,
+                    xftp = mithrilXFTPServers,
+                    useXFTP = 1,
+                    chatRelays = mithrilChatRelays,
                     useChatRelays = 0
                   }
               ],
@@ -109,7 +99,7 @@ defaultChatConfig =
       -- to have a different set of servers on the receiving end and on the sending end.
       -- To preserve backward compatibility receiving end should update before the sending.
       shortLinkPresetServers = allPresetServers,
-      presetDomains = [".simplex.im", ".simplexonflux.com"],
+      presetDomains = [".oakendigital.com"],
       tbqSize = 1024,
       maxChats = 5000,
       fileChunkSize = 15780, -- do not change

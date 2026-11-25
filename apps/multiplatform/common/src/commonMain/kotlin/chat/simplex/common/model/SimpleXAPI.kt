@@ -4778,10 +4778,10 @@ data class ServerOperatorInfo(
 val operatorsInfo: Map<OperatorTag, ServerOperatorInfo> = mapOf(
   OperatorTag.SimpleX to ServerOperatorInfo(
     description = listOf(
-      "SimpleX Chat is the first communication network that has no user profile IDs of any kind, not even random numbers or keys that identify the users.",
-      "SimpleX Chat Ltd develops the communication software for SimpleX network."
+      "Mithril is a private messenger fork operated by Oak Digital.",
+      "This build connects only to Oak Digital servers at chat.oakendigital.com."
     ),
-    website = "https://simplex.chat",
+    website = "https://oakendigital.com",
     logo = MR.images.decentralized,
     largeLogo = MR.images.logo,
     logoDarkMode = MR.images.decentralized_light,
@@ -4789,12 +4789,9 @@ val operatorsInfo: Map<OperatorTag, ServerOperatorInfo> = mapOf(
   ),
   OperatorTag.Flux to ServerOperatorInfo(
     description = listOf(
-      "Flux is the largest decentralized cloud, based on a global network of user-operated nodes.",
-      "Flux offers a powerful, scalable, and affordable cutting edge technology platform for all.",
-      "Flux operates servers in SimpleX network to improve its privacy and decentralization."
+      "Unused in the Mithril fork — public Flux presets are disabled."
     ),
-    website = "https://runonflux.com",
-    selfhost = "Self-host SimpleX servers on Flux" to "https://home.runonflux.io/apps/marketplace?q=simplex",
+    website = "https://oakendigital.com",
     logo = MR.images.flux_logo_symbol,
     largeLogo = MR.images.flux_logo,
     logoDarkMode = MR.images.flux_logo_symbol,
@@ -4889,9 +4886,9 @@ data class ServerOperator(
     val sampleData1 = ServerOperator(
       operatorId = 1,
       operatorTag = OperatorTag.SimpleX,
-      tradeName = "SimpleX Chat",
-      legalName = "SimpleX Chat Ltd",
-      serverDomains = listOf("simplex.im"),
+      tradeName = "Mithril",
+      legalName = "Oak Digital",
+      serverDomains = listOf("oakendigital.com"),
       conditionsAcceptance = ConditionsAcceptance.Accepted(acceptedAt = null, autoAccepted = false),
       enabled = true,
       smpRoles = ServerRoles(storage = true, proxy = true, names = true),
