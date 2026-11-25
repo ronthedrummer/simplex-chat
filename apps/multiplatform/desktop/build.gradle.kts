@@ -45,7 +45,7 @@ compose {
         jvmArgs += "--add-exports=java.desktop/com.apple.eawt.event=ALL-UNNAMED"
       }
       nativeDistributions {
-        copyright = "(c) 2020-2026 SimpleX Chat"
+        copyright = "(c) 2026 Oaken Digital"
         // For debugging via VisualVM
         if (debugJava) {
           modules("jdk.zipfs", "jdk.unsupported", "jdk.management.agent")
@@ -72,7 +72,7 @@ compose {
           appCategory = "Messenger"
         }
         windows {
-          packageName = "SimpleX"
+          packageName = "Mithril"
           iconFile.set(project.file("src/jvmMain/resources/distribute/simplex.ico"))
           console = false
           perUserInstall = false
@@ -81,7 +81,7 @@ compose {
           upgradeUuid = "CC9EFBC8-AFFF-40D8-BB69-FCD7CE99EFB9"
         }
         macOS {
-          packageName = "SimpleX"
+          packageName = "Mithril"
           iconFile.set(project.file("src/jvmMain/resources/distribute/simplex.icns"))
           appCategory = "public.app-category.social-networking"
           bundleID = "chat.simplex.app"
@@ -122,7 +122,7 @@ compose {
           }
         }
         if (os.contains("mac") || os.contains("win")) {
-          packageName = "SimpleX"
+          packageName = "Mithril"
         } else {
           packageName = "simplex"
         }

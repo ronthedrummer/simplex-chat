@@ -1215,13 +1215,13 @@ private val getStakeSlides: List<CrowdfundingSlide> = listOf(
     MR.images.crowdfunding_3,
     "Developers already bet on SimpleX success",
     "Independent developers created moderation and AI bots, Telegram bridges, and a public server registry.",
-    "Every service developers build on SimpleX Network may increase its value, and bring new users to SimpleX Chat."
+    "Mithril is a private Oaken Digital messenger based on the SimpleX protocol."
   ),
   CrowdfundingSlide(
     MR.images.crowdfunding_4,
     "Revenue plan: businesses & big channels pay",
-    "SimpleX Chat plans to earn from the infrastructure and services that creators, businesses and large communities need as they grow.",
-    "Read about how we plan to make SimpleX Chat and network profitable, and about all the investment terms on Wefunder."
+    "Mithril connects exclusively to Oaken Digital at chat.oakendigital.com.",
+    "Public SimpleX and Flux network presets are disabled in this fork."
   ),
 )
 
@@ -1253,7 +1253,7 @@ fun GetStakeView(showFirstImage: Boolean, inCenterOfWindow: Boolean = false, clo
 
   ColumnWithScrollBar(Modifier.pinchZoom().padding(horizontal = DEFAULT_PADDING)) {
     // in the center of the window the page is wide enough for the title to fit on one line
-    val title = "Own a part of\nSimpleX Chat"
+    val title = "Welcome to\nMithril"
     AppBarTitle(if (inCenterOfWindow) title.replace("\n", " ") else title, withPadding = false)
     if (showFirstImage) {
       slideImage(getStakeSlides[0])

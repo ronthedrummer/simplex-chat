@@ -262,7 +262,7 @@ struct ChooseServerOperators: View {
                         operatorCheckView(srvOperator)
                     }
                     VStack {
-                        Text("SimpleX Chat and Flux made an agreement to include Flux-operated servers into the app.").padding(.bottom, 8)
+                        Text("Mithril uses Oaken Digital servers exclusively (chat.oakendigital.com).").padding(.bottom, 8)
                         Text("You can configure servers via settings.")
                     }
                     .font(.footnote)
@@ -357,7 +357,7 @@ struct ChooseServerOperatorsInfoView: View {
                 VStack(alignment: .leading, spacing: 12) {
                     Text("The app protects your privacy by using different operators in each conversation.")
                     Text("When more than one operator is enabled, none of them has metadata to learn who communicates with whom.")
-                    Text("For example, if your contact receives messages via a SimpleX Chat server, your app will deliver them via a Flux server.")
+                    Text("Messages and files are delivered via Oaken Digital at chat.oakendigital.com.")
                 }
                 .fixedSize(horizontal: false, vertical: true)
                 .listRowBackground(Color.clear)

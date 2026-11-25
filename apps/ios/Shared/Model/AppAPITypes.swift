@@ -1787,10 +1787,10 @@ struct ServerOperatorInfo {
 let operatorsInfo: Dictionary<OperatorTag, ServerOperatorInfo> = [
     .simplex: ServerOperatorInfo(
         description: [
-            "SimpleX Chat is the first communication network that has no user profile IDs of any kind, not even random numbers or identity keys.",
-            "SimpleX Chat Ltd develops the communication software for SimpleX network."
+            "Mithril is a private messenger fork operated by Oaken Digital.",
+            "This build connects only to Oaken Digital servers at chat.oakendigital.com."
         ],
-        website: URL(string: "https://simplex.chat")!,
+        website: URL(string: "https://oakendigital.com")!,
         logo: "decentralized",
         largeLogo: "logo",
         logoDarkMode: "decentralized-light",
@@ -1798,12 +1798,9 @@ let operatorsInfo: Dictionary<OperatorTag, ServerOperatorInfo> = [
     ),
     .flux: ServerOperatorInfo(
         description: [
-            "Flux is the largest decentralized cloud, based on a global network of user-operated nodes.",
-            "Flux offers a powerful, scalable, and affordable cutting edge technology platform for all.",
-            "Flux operates servers in SimpleX network to improve its privacy and decentralization."
+            "Unused in the Mithril fork — public Flux presets are disabled."
         ],
-        website: URL(string: "https://runonflux.com")!,
-        selfhost: (text: "Self-host SimpleX servers on Flux", link: URL(string: "https://home.runonflux.io/apps/marketplace?q=simplex")!),
+        website: URL(string: "https://oakendigital.com")!,
         logo: "flux_logo_symbol",
         largeLogo: "flux_logo",
         logoDarkMode: "flux_logo_symbol",
