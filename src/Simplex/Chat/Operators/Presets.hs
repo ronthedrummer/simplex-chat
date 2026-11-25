@@ -13,7 +13,7 @@ import Simplex.Messaging.Agent.Env.SQLite (allRoles)
 import Simplex.Messaging.Agent.Store.Entity
 import Simplex.Messaging.Protocol (ProtocolType (..), SMPServer)
 
--- | Mithril (Oak Digital) — sole preset operator for this fork.
+-- | Mithril (Oaken Digital) — sole preset operator for this fork.
 -- Operator tag stays OTSimplex ("simplex") for DB/protocol compatibility;
 -- all user-facing names and hostnames are rebranded.
 operatorMithril :: NewServerOperator
@@ -22,7 +22,7 @@ operatorMithril =
     { operatorId = DBNewEntity,
       operatorTag = Just OTSimplex,
       tradeName = "Mithril",
-      legalName = Just "Oak Digital",
+      legalName = Just "Oaken Digital",
       serverDomains = ["oakendigital.com"],
       conditionsAcceptance = CARequired Nothing,
       enabled = True,
@@ -83,7 +83,7 @@ mithrilChatRelays = []
 simplexChatRelays :: [NewUserChatRelay]
 simplexChatRelays = mithrilChatRelays
 
--- Flux presets removed — this fork only uses Oak Digital / Mithril servers.
+-- Flux presets removed — this fork only uses Oaken Digital / Mithril servers.
 -- Stubs remain so older imports compile; they are not included in defaultChatConfig.
 operatorFlux :: NewServerOperator
 operatorFlux =

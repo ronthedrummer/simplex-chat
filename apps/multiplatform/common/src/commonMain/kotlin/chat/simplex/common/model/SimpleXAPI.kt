@@ -4778,8 +4778,8 @@ data class ServerOperatorInfo(
 val operatorsInfo: Map<OperatorTag, ServerOperatorInfo> = mapOf(
   OperatorTag.SimpleX to ServerOperatorInfo(
     description = listOf(
-      "Mithril is a private messenger fork operated by Oak Digital.",
-      "This build connects only to Oak Digital servers at chat.oakendigital.com."
+      "Mithril is a private messenger fork operated by Oaken Digital.",
+      "This build connects only to Oaken Digital servers at chat.oakendigital.com."
     ),
     website = "https://oakendigital.com",
     logo = MR.images.decentralized,
@@ -4887,7 +4887,7 @@ data class ServerOperator(
       operatorId = 1,
       operatorTag = OperatorTag.SimpleX,
       tradeName = "Mithril",
-      legalName = "Oak Digital",
+      legalName = "Oaken Digital",
       serverDomains = listOf("oakendigital.com"),
       conditionsAcceptance = ConditionsAcceptance.Accepted(acceptedAt = null, autoAccepted = false),
       enabled = true,

@@ -78,7 +78,7 @@ defaultChatConfig =
       confirmMigrations = MCConsole,
       -- this property should NOT use operator = Nothing
       -- non-operator servers can be passed via options
-      -- Mithril fork: only Oak Digital / chat.oakendigital.com — no public SimpleX or Flux presets
+      -- Mithril fork: only Oaken Digital / chat.oakendigital.com — no public SimpleX or Flux presets
       presetServers =
         PresetServers
           { operators =

@@ -50,7 +50,7 @@ chatWelcome user =
       "Welcome " <> green userName <> "!",
       "Thank you for installing Mithril!",
       "",
-      "This private fork talks only to Oak Digital servers (chat.oakendigital.com).",
+      "This private fork talks only to Oaken Digital servers (chat.oakendigital.com).",
       "",
       "Type " <> highlight "/help" <> " for usage info, " <> highlight "/welcome" <> " to show this message"
     ]

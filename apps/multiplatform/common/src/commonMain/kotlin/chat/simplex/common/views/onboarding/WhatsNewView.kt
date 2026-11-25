@@ -1215,12 +1215,12 @@ private val getStakeSlides: List<CrowdfundingSlide> = listOf(
     MR.images.crowdfunding_3,
     "Developers already bet on SimpleX success",
     "Independent developers created moderation and AI bots, Telegram bridges, and a public server registry.",
-    "Mithril is a private Oak Digital messenger based on the SimpleX protocol."
+    "Mithril is a private Oaken Digital messenger based on the SimpleX protocol."
   ),
   CrowdfundingSlide(
     MR.images.crowdfunding_4,
     "Revenue plan: businesses & big channels pay",
-    "Mithril connects exclusively to Oak Digital at chat.oakendigital.com.",
+    "Mithril connects exclusively to Oaken Digital at chat.oakendigital.com.",
     "Public SimpleX and Flux network presets are disabled in this fork."
   ),
 )

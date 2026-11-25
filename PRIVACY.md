@@ -3,9 +3,9 @@ layout: layouts/privacy.html
 permalink: /privacy/index.html
 ---
 
-# Mithril (Oak Digital) Privacy Policy and Conditions of Use
+# Mithril (Oaken Digital) Privacy Policy and Conditions of Use
 
-This fork’s user-facing product name is **Mithril**, operated by **Oak Digital**, using servers at **chat.oakendigital.com**. The text below is adapted from the upstream SimpleX Chat operators policy and still describes the underlying SimpleX protocol design.
+This fork’s user-facing product name is **Mithril**, operated by **Oaken Digital**, using servers at **chat.oakendigital.com**. The text below is adapted from the upstream SimpleX Chat operators policy and still describes the underlying SimpleX protocol design.
 
 ## Summary
 

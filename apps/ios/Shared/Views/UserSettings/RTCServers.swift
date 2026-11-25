@@ -38,7 +38,7 @@ struct RTCServers: View {
                     }
                     .alert(isPresented: $showResetServersAlert) {
                         Alert(
-                            title: Text("Use Mithril (Oak Digital) servers?"),
+                            title: Text("Use Mithril (Oaken Digital) servers?"),
                             message: Text("Saved WebRTC ICE servers will be removed"),
                             primaryButton: .destructive(Text("Confirm")) {
                                 resetRTCServers()

@@ -834,7 +834,7 @@
 
   <!-- help - ChatHelpView.kt -->
   <string name="thank_you_for_installing_simplex">Thank you for installing Mithril!</string>
-  <string name="you_can_connect_to_simplex_chat_founder"><![CDATA[Questions? Contact Oak Digital support.]]></string>
+  <string name="you_can_connect_to_simplex_chat_founder"><![CDATA[Questions? Contact Oaken Digital support.]]></string>
   <string name="to_start_a_new_chat_help_header">To start a new chat</string>
   <string name="chat_help_tap_button">Tap button</string>
   <string name="above_then_preposition_continuation">above, then:</string>
@@ -1068,7 +1068,7 @@
   <string name="star_on_github">Star on GitHub</string>
   <string name="contribute">Contribute</string>
   <string name="rate_the_app">Rate the app</string>
-  <string name="use_simplex_chat_servers__question">Use Mithril (Oak Digital) servers?</string>
+  <string name="use_simplex_chat_servers__question">Use Mithril (Oaken Digital) servers?</string>
   <string name="using_simplex_chat_servers">Using Mithril servers (chat.oakendigital.com).</string>
   <string name="how_to">How to</string>
   <string name="how_to_use_your_servers">How to use your servers</string>
@@ -1382,10 +1382,10 @@
   <string name="onboarding_conditions_accept">Accept</string>
   <string name="onboarding_choose_server_operators">Server operators</string>
   <string name="onboarding_network_operators">Network operators</string>
-  <string name="onboarding_network_operators_simplex_flux_agreement">Mithril uses Oak Digital servers exclusively (chat.oakendigital.com).</string>
+  <string name="onboarding_network_operators_simplex_flux_agreement">Mithril uses Oaken Digital servers exclusively (chat.oakendigital.com).</string>
   <string name="onboarding_network_operators_app_will_use_different_operators">The app protects your privacy by using different operators in each conversation.</string>
   <string name="onboarding_network_operators_cant_see_who_talks_to_whom">When more than one operator is enabled, none of them has metadata to learn who communicates with whom.</string>
-  <string name="onboarding_network_operators_app_will_use_for_routing">Messages and files are delivered via Oak Digital at chat.oakendigital.com.</string>
+  <string name="onboarding_network_operators_app_will_use_for_routing">Messages and files are delivered via Oaken Digital at chat.oakendigital.com.</string>
   <string name="onboarding_network_about_operators">About operators</string>
   <string name="how_it_helps_privacy">How it helps privacy</string>
   <string name="onboarding_network_operators_configure_via_settings">You can configure servers via settings.</string>

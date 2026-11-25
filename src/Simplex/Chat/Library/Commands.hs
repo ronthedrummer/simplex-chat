@@ -165,7 +165,7 @@ import Simplex.Messaging.Agent.Store.SQLite.DB (SlowQueryStats (..))
 
 _defaultNtfServers :: [NtfServer]
 _defaultNtfServers =
-  -- Mithril fork: push notifications via Oak Digital only (no public SimpleX ntf*.simplex.im).
+  -- Mithril fork: push notifications via Oaken Digital only (no public SimpleX ntf*.simplex.im).
   [ fromString oakNTFURI ]
 
 

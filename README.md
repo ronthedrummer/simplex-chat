@@ -1,14 +1,14 @@
 # Mithril
 
-Private messenger fork of [SimpleX Chat](https://github.com/simplex-chat/simplex-chat), operated by **Oak Digital**.
+Private messenger fork of [SimpleX Chat](https://github.com/simplex-chat/simplex-chat), operated by **Oaken Digital**.
 
 ## Brand
 
 **Product name:** Mithril  
-**Operator:** Oak Digital  
+**Operator:** Oaken Digital  
 **Servers:** exclusively `chat.oakendigital.com` (SMP, XFTP, and NTF presets)
 
-Public SimpleX Chat (`*.simplex.im`) and Flux (`*.simplexonflux.com`) network presets are removed from this fork’s defaults. The client is configured to talk only to Oak Digital’s host.
+Public SimpleX Chat (`*.simplex.im`) and Flux (`*.simplexonflux.com`) network presets are removed from this fork’s defaults. The client is configured to talk only to Oaken Digital’s host.
 
 > **Note:** The certificate fingerprint in server URIs is a placeholder until `chat.oakendigital.com` is provisioned and DNS resolves. Replace `hQWvjXQ3QyhCSu5LNyxW7AUiCM4EivfO-xWDt97PJ1U` with the real server fingerprint when the host is live.
 
@@ -20,7 +20,7 @@ Tolkien-flavored name: mithril is rare, light, and strong — fitting for a priv
 
 This repository remains AGPLv3 and retains SimpleX protocol compatibility. Upstream project: https://github.com/simplex-chat/simplex-chat
 
-Protocol documentation and contributing guides under `docs/` still describe the upstream SimpleX architecture; user-facing app strings and presets in this fork are rebranded to Mithril / Oak Digital.
+Protocol documentation and contributing guides under `docs/` still describe the upstream SimpleX architecture; user-facing app strings and presets in this fork are rebranded to Mithril / Oaken Digital.
 
 ## Install / build
 

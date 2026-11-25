@@ -1787,8 +1787,8 @@ struct ServerOperatorInfo {
 let operatorsInfo: Dictionary<OperatorTag, ServerOperatorInfo> = [
     .simplex: ServerOperatorInfo(
         description: [
-            "Mithril is a private messenger fork operated by Oak Digital.",
-            "This build connects only to Oak Digital servers at chat.oakendigital.com."
+            "Mithril is a private messenger fork operated by Oaken Digital.",
+            "This build connects only to Oaken Digital servers at chat.oakendigital.com."
         ],
         website: URL(string: "https://oakendigital.com")!,
         logo: "decentralized",

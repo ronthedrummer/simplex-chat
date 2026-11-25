@@ -45,7 +45,7 @@ compose {
         jvmArgs += "--add-exports=java.desktop/com.apple.eawt.event=ALL-UNNAMED"
       }
       nativeDistributions {
-        copyright = "(c) 2026 Oak Digital"
+        copyright = "(c) 2026 Oaken Digital"
         // For debugging via VisualVM
         if (debugJava) {
           modules("jdk.zipfs", "jdk.unsupported", "jdk.management.agent")
